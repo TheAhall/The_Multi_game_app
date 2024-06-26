@@ -1,0 +1,114 @@
+#difficulty_selection_screen.kv
+<DifficultySelectionScreen>:
+    FloatLayout:
+        Image:
+            source: 'background_image.png'
+            allow_stretch: True
+            keep_ratio: False
+            size_hint: (1, 1)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+        BoxLayout:
+            orientation: 'vertical'
+            padding: 20
+            spacing: 20
+            size_hint: (0.8, 0.8)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            canvas.before:
+                Color:
+                    rgba: (0, 0, 0, 0.6)  # Semi-transparent background
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [20,]
+
+            Label:
+                text: 'Select Difficulty'
+                font_size: 40
+                color: 1, 1, 1, 1
+                bold: True
+                size_hint: 1, 0.2
+                halign: 'center'
+                valign: 'middle'
+                text_size: self.size
+
+            ScrollView:
+                size_hint: 1, 0.8
+                BoxLayout:
+                    orientation: 'vertical'
+                    spacing: 20
+                    size_hint_y: None
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                    height: self.minimum_height
+                    padding: 10
+
+                    
+                    Button:
+                        text: 'Easy 2x2'
+                        size_hint: 0.5, None
+                        size: 300, 50
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                        font_size: 16
+                        background_color: 0.4, 0.18, 0.6
+                        background_normal: ''
+                        color: 1, 1, 1, 1
+                        on_release: root.load_easy_2x2(self)
+
+                    Button:
+                        text: 'Easy 3x3'
+                        size_hint: 0.5, None
+                        size: 300, 50
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                        font_size: 16
+                        background_color: 0.4, 0.18, 0.6
+                        background_normal: ''
+                        color: 1, 1, 1, 1
+                        on_release: root.load_easy_3x3(self)
+
+                    Button:
+                        text: 'Medium 4x4'
+                        size_hint: 0.5, None
+                        size: 300, 50
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                        font_size: 16
+                        background_color: 0.4, 0.18, 0.6
+                        background_normal: ''
+                        color: 1, 1, 1, 1
+                        on_release: root.load_medium(self)
+
+                    Button:
+                        text: 'Hard 5x5'
+                        size_hint: 0.5, None
+                        size: 300, 50
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                        font_size: 16
+                        background_color: 0.4, 0.18, 0.6
+                        background_normal: ''
+                        color: 1, 1, 1, 1
+                        on_release: root.load_hard(self)
+
+                    Button:
+                        text: 'Hard 6x6'
+                        size_hint: 0.5, None
+                        size: 300, 50
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                        font_size: 16
+                        background_color: 0.4, 0.18, 0.6
+                        background_normal: ''
+                        color: 1, 1, 1, 1
+                        on_release: root.load_hard_6(self)
+            BoxLayout:
+                orientation: 'vertical'
+                padding: 1
+                spacing: 1
+                size_hint: (0.5, 0.2)
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                Button:
+                    text: 'Main'
+                    size_hint: 1, 0.1
+                    size: 50, 50
+                    font_size: 16
+                    background_color: 0.4, 0.1, 0.0, 1
+                    background_normal: ''
+                    color: 1, 1, 1, 1
+                    on_release: root.load_main(self)

@@ -1,0 +1,77 @@
+#game_2048.kv
+<Game2048>:
+    canvas.before:
+        Rectangle:
+            size: self.size
+            pos: self.pos
+            source: 'background_2.jpg'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+
+        Label:
+            text: '2048'
+            font_size: 32
+            size_hint: (1, 0.1)
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, 0.1)
+
+            Label:
+                id: score_label
+                text: 'Score: 0'
+                font_size: 24
+                size_hint: (1, 1)
+
+            Label:
+                id: high_score_label
+                text: 'High Score: 0'
+                font_size: 24
+                size_hint: (1, 1)
+
+            Label:
+                id: last_score_label
+                text: 'Last Score: 0'
+                font_size: 24
+                size_hint: (1, 1)
+
+        BoxLayout:
+            orientation: 'vertical'
+            padding: 5
+            spacing: 10
+            size_hint: (0.6, 0.6)
+            pos_hint: {'center_x': 0.5}
+            canvas.before:
+                Color:
+                    rgba: 0.2, 0.2, 0.2, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+            GridLayout:
+                id: grid
+                cols: 4
+                spacing: 5
+                size_hint: (1, 1)
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: 10
+            size_hint: (0.6, 0.1)
+            pos_hint: {'center_x': 0.5}
+
+            Button:
+                text: 'Reset'
+                font_size: 20
+                background_color: 0.2, 0.8, 0.2, 1
+                color: 1, 1, 1, 1
+                on_release: root.start_game()
+
+            Button:
+                text: 'Back'
+                font_size: 20
+                background_color: 0.8, 0.2, 0.2, 1
+                color: 1, 1, 1, 1
+                on_release: app.root.current = 'main'

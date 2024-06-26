@@ -1,0 +1,35 @@
+#breakout.kv
+<Ball>:
+    size: 20, 20
+    canvas.before:
+        Ellipse:
+            pos: self.pos
+            size: self.size
+
+<Paddle>:
+    size: 100, 10
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<BrickGame>:
+    ball: ball
+    paddle: paddle
+
+    canvas.before:
+        Rectangle:
+            size: self.size
+            pos: self.pos
+            source: 'breakout/table.jpg'
+
+    Ball:
+        id: ball
+        center: self.center
+
+    Paddle:
+        id: paddle
+        y: 30
+        center_x: root.center_x
+
+
