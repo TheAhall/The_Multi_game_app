@@ -1,0 +1,53 @@
+#matchmaster.kv
+<Card>:
+    font_size: 0
+    size_hint: 1, 1
+    background_color: (0.7, 0.7, 0.7, 1)
+    color: (0, 0, 0, 1)
+
+<CardGrid>:
+    cols: 4
+    padding: 1
+    spacing: 10
+
+<MatchMaster>:
+    canvas.before:
+        Rectangle:
+            size: self.size
+            pos: self.pos
+            source: 'background_2.jpg'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 5
+        spacing: 10
+        Label:
+            text: 'MatchMaster'
+            font_size: 32
+            size_hint_y: None
+            height: 50
+        BoxLayout:
+            orientation: 'vertical'
+            padding: 5
+            spacing: 10
+            size_hint: (0.6, 0.8)
+            pos_hint: {'center_x': 0.5}
+            canvas.before:
+                Color:
+                    rgba: (0.2, 0.2, 0.2, 1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            CardGrid:
+                id: card_grid
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (0.6, 0.06)
+            pos_hint: {'center_x': 0.5}
+            height: 50
+            spacing: 5
+            Button:
+                text: 'Reset'
+                on_release: root.reset_game()
+            Button:
+                text: 'Quit'
+                on_release: root.quit_game()

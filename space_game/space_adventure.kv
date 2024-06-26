@@ -1,0 +1,59 @@
+#space_adventure.kv
+<Spaceship>:
+    size: 70, 80
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'space_game/spaceship.png'
+
+<Asteroid>:
+    size: 50, 50
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'space_game/asteroid.png'
+
+<Star>:
+    size: 30, 30
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'space_game/star.png'
+
+<PowerUp>:
+    size: 40, 40
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'space_game/powerup.png'
+
+<Magnetic>:
+    size: 40, 40
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'space_game/magnetic.png'
+
+<Bullet>:
+    size: 15, 25
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'space_game/bullet.png'
+
+<SpaceGame>:
+    spaceship: spaceship
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'space_game/space.jpg'
+    Spaceship:
+        id: spaceship
+        pos_hint: {'center_x': 0.5, 'center_y': 0.1}

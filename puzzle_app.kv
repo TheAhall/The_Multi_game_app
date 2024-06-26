@@ -1,0 +1,167 @@
+#puzzle_app.kv
+<FifteenG>:
+    FloatLayout:
+        Image:
+            source: 'background_image.png'
+            allow_stretch: True
+            keep_ratio: False
+            size_hint: (1, 1)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+        BoxLayout:
+            orientation: 'vertical'
+            padding: 20
+            spacing: 20
+            size_hint: (0.8, 0.8)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            canvas.before:
+                Color:
+                    rgba: (0, 0, 0, 0.6)  # Semi-transparent background
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [20,]
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint: (1, 0.1)
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                Button:
+                    id: logout
+                    text: 'Logout'
+                    bold: True
+                    halign: 'center'
+                    valign: 'middle'
+                    size_hint: 0.3, 1
+                    size: 50, 40
+                    background_color: (0.8, 0.2, 0.2, 1)
+                    on_release: root.logout()
+                Label:
+                    text: 'Multi-Game'
+                    font_size: 40
+                    color: 1, 1, 1, 1
+                    bold: True
+                    size_hint: 1, 1
+                    halign: 'center'
+                    valign: 'middle'
+                    text_size: self.size
+                Button:
+                    id: profile
+                    bold: True
+                    halign: 'center'
+                    valign: 'middle'
+                    size_hint: 0.3, 1
+                    size: 50, 40
+                    background_color: (0.2, 0.6, 0.8, 1)
+            ScrollView:
+                size_hint: 1, 0.8
+                GridLayout:
+                    cols: 2
+                    spacing: 20
+                    size_hint_y: None
+                    height: self.minimum_height
+                    padding: [50, 10, 50, 10]
+
+                    Button:
+                        size_hint: 0.5, None
+                        size: 170, 130
+                        font_size: 16
+                        background_normal: 'asset/fifteen_game.png'
+                        color: 1, 1, 1, 1
+                        on_release: root.load_the_game()
+
+                    Button:
+                        size_hint: 0.5, None
+                        size: 170, 130
+                        font_size: 16
+                        background_normal: 'asset/pong_game.png'
+                        color: 1, 1, 1, 1
+                        on_release: root.load_pong_game()
+
+                    Button:
+                        size_hint: 0.5, None
+                        size: 170, 130
+                        font_size: 16
+                        background_normal: 'asset/tictactoe.png'
+                        color: 1, 1, 1, 1
+                        on_release: root.load_tic_tac_toe_game()
+
+                    Button:
+                        size_hint: 0.5, None
+                        size: 170, 130
+                        font_size: 16
+                        background_normal: 'asset/jigsaw.png'
+                        color: 1, 1, 1, 1
+                        on_release: root.load_jigsaw_game()
+
+                    Button:
+                        size_hint: 0.5, None
+                        size: 170, 130
+                        font_size: 16
+                        background_normal: 'asset/match_master.png'
+                        color: 1, 1, 1, 1
+                        on_release: root.load_match_game()
+
+                    Button:
+                        size_hint: 0.5, None
+                        size: 170, 130
+                        font_size: 16
+                        background_normal: 'asset/sudoku.png'
+                        color: 1, 1, 1, 1
+                        on_release: root.load_sudoku_game()
+
+                    Button:
+                        size_hint: (0.5, None)
+                        size: 170, 130
+                        font_size: 16
+                        background_normal: 'asset/game_2048.png'
+                        color: 1, 1, 1, 1
+                        on_release: root.load_game_2048()
+
+                    Button:
+                        bold: True
+                        size_hint: (0.5, None)
+                        size: 170, 130
+                        font_size: 16
+                        background_normal: 'asset/breakout.png'
+                        color: 1, 1, 1, 1
+                        on_release: root.load_brick_game()
+
+                    Button:
+                        size_hint: (0.5, None)
+                        size: 170, 130
+                        font_size: 16
+                        background_normal: 'asset/color_memory.png'
+                        color: 1, 1, 1, 1
+                        on_release: root.load_color_memory()
+
+                    Button:
+                        size_hint: (0.5, None)
+                        size: 170, 130
+                        font_size: 16
+                        background_normal: 'asset/color_match.png'
+                        color: 1, 1, 1, 1
+                        on_release: root.load_color_match()
+
+                    Button:
+                        size_hint: (0.5, None)
+                        size: 170, 130
+                        font_size: 16
+                        background_normal: 'asset/space_game.png'
+                        color: 1, 1, 1, 1
+                        on_release: root.load_space_game()
+
+                    Button:
+                        text: 'Games info'
+                        size_hint: (0.5, None)
+                        bold: True
+                        size: 170, 130
+                        font_size: 20
+                        color: 0.9, .9, .9, 1
+                        background_normal: 'asset/info.png'
+                        on_release: root.load_info()
+                        canvas.before:
+                            Color:
+                                rgba: (0.016, 0.290, 0.545, 1)
+                            Rectangle:
+                                size: self.size
+                                pos: self.pos

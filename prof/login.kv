@@ -1,0 +1,340 @@
+#login.kv
+
+<LoginScreen>:
+    name: 'login'
+    FloatLayout:
+        Image:
+            source: 'asset/login_back.jpg'
+            allow_stretch: True
+            keep_ratio: False
+            size_hint: (1, 1)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        BoxLayout:
+            orientation: 'vertical'
+            padding: [50, 10, 50, 10]
+            spacing: 10
+            size_hint: (0.5, 0.9)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            canvas.before:
+                Color:
+                    rgba: (0, 0, 0, 0.6)  # Semi-transparent background
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [20,]
+
+            Image:
+                source: 'default_profile.png'
+                allow_stretch: True
+                keep_ratio: False
+                size_hint: (None, None)
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+            TextInput:
+                id: username
+                hint_text: 'Username'
+                size_hint: (1, 0.75)
+                multiline: False
+                write_tab: False
+
+            TextInput:
+                id: password
+                hint_text: 'Password'
+                size: (1, 0.5)
+                size_hint: (1, 0.75)
+                multiline: False
+                password: True
+                write_tab: False
+
+            Button:
+                text: 'Login'
+                color: (1, 1, 1, 1)
+                on_release: root.login(username.text, password.text)
+                height: 50
+                size_hint: (1, 0.75)
+                background_color: (0.7, 0.3, 1, 0.2)
+                canvas.before:
+                    Color:
+                        rgba: (0.7, 0.3, 1, 1)  # Semi-transparent background
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [35,]
+
+            Button:
+                text: 'Sign Up'
+                on_release: app.root.current = 'signup'
+                color: (1, 1, 1, 1)
+                height: 50
+                size_hint: (1, 0.75)
+                background_color: (0.7, 0.3, 1, 0.2)
+                canvas.before:
+                    Color:
+                        rgba: (0.7, 0.3, 1, 1)  # Semi-transparent background
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [35,]
+            Button:
+                text: 'Back To Main'
+                on_release: app.root.current = 'main'
+                color: (1, 1, 1, 1)
+                height: 50
+                size_hint: (1, 0.75)
+                background_color: (0.7, 0.3, 1, 0.2)
+                canvas.before:
+                    Color:
+                        rgba: (0.7, 0.3, 1, 1)  # Semi-transparent background
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [35,]
+
+            Label:
+                id: error
+                text: ''
+                color: [1, 0, 0, 1]
+                height: 50
+                radius: [10,]
+
+<SignUpScreen>:
+    name: 'signup'
+    FloatLayout:
+        Image:
+            source: 'asset/login_back.jpg'
+            allow_stretch: True
+            keep_ratio: False
+            size_hint: (1, 1)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        BoxLayout:
+            orientation: 'vertical'
+            padding: [50, 3, 50, 3]
+            spacing: 7
+            size_hint: (0.5, 0.93)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            canvas.before:
+                Color:
+                    rgba: (0, 0, 0, 0.6)  # Semi-transparent background
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [20,]
+            
+            Label:
+                text: 'Sign Up'
+                font_size: 32
+                bold: True
+                size_hint_y: 1
+                height: self.texture_size[1]
+                color: (1, 1, 1, 1)  # White text
+
+            TextInput:
+                id: nickname
+                hint_text: 'Nickname'
+                size_hint: (1, 0.75)
+                multiline: False
+                write_tab: False
+
+            TextInput:
+                id: username
+                hint_text: 'Username'
+                size_hint: (1, 0.75)
+                multiline: False
+                write_tab: False
+
+            TextInput:
+                id: email
+                hint_text: 'Email'
+                size_hint: (1, 0.75)
+                multiline: False
+                write_tab: False
+
+            TextInput:
+                id: confirm_email
+                hint_text: 'Confirm Email'
+                size_hint: (1, 0.75)
+                multiline: False
+                write_tab: False
+
+            TextInput:
+                id: password
+                hint_text: 'Password'
+                size_hint: (1, 0.75)
+                multiline: False
+                password: True
+                write_tab: False
+
+            TextInput:
+                id: confirm_password
+                hint_text: 'Confirm Password'
+                size_hint: (1, 0.75)
+                multiline: False
+                password: True
+                write_tab: False
+
+            Button:
+                text: 'Sign Up'
+                on_release: root.signup(nickname.text, username.text, password.text, confirm_password.text, email.text, confirm_email.text)
+                color: (1, 1, 1, 1)
+                height: 50
+                size_hint: (1, 0.75)
+                background_color: (0.7, 0.3, 1, 0.2)
+                canvas.before:
+                    Color:
+                        rgba: (0.7, 0.3, 1, 1)  # Semi-transparent background
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [35,]
+
+            Button:
+                text: 'Login'
+                on_release: app.root.current = 'login'
+                color: (1, 1, 1, 1)
+                height: 50
+                size_hint: (1, 0.75)
+                background_color: (0.7, 0.3, 1, 0.2)
+                canvas.before:
+                    Color:
+                        rgba: (0.7, 0.3, 1, 1)  # Semi-transparent background
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [35,]
+
+            Button:
+                text: 'Back To Main'
+                on_release: app.root.current = 'main'
+                color: (1, 1, 1, 1)
+                height: 50
+                size_hint: (1, 0.75)
+                background_color: (0.7, 0.3, 1, 0.2)
+                canvas.before:
+                    Color:
+                        rgba: (0.7, 0.3, 1, 1)  # Semi-transparent background
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [35,]
+
+            Label:
+                id: error
+                text: ''
+                size_hint_y: 0.25
+                color: [1, 0, 0, 1]
+                height: 50
+                radius: [10,]
+
+<ProfileScreen>:
+    name: 'profile'
+    FloatLayout:
+        Image:
+            source: 'prof/backgourd_prof.jpg'
+            allow_stretch: True
+            keep_ratio: False
+            size_hint: (1, 1)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        BoxLayout:
+            orientation: 'vertical'
+            padding: [50, 10, 50, 10]
+            spacing: 10
+            size_hint: (0.8, 0.9)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            canvas.before:
+                Color:
+                    rgba: (0.95, 0.95, 0.95, 0.8)  # Light grey background
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [20,]
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 20
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint: (0.4, 1)
+                    Image:
+                        id: profile_pic
+                        source: 'default_profile.png'
+                        allow_stretch: True
+                        keep_ratio: True
+                    Label:
+                        id: nickname
+                        font_size: 20
+                        size_hint_y: None
+                        color: (0, 0, 0, 1)
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint: (0.6, 1)
+                    GridLayout:
+                        cols: 2
+                        spacing: 5
+                        Label:
+                            text: 'Email: '
+                            font_size: 20
+                            color: (0, 0, 0, 1)
+                            size_hint_y: None
+                        Label:
+                            id: email
+                            font_size: 17
+                            size_hint_y: None
+                            color: (0, 0, 0, 1)
+
+                        Label:
+                            text: 'About: '
+                            font_size: 20
+                            color: (0, 0, 0, 1)
+                            size_hint_y: None
+                        Label:
+                            id: about
+                            font_size: 17
+                            size_hint_y: None
+                            text_size: self.width, None
+                            color: (0, 0, 0, 1)
+
+                        Label:
+                            text: 'Scores: '
+                            font_size: 20
+                            color: (0, 0, 0, 1)
+                            size_hint_y: None
+                        Label:
+                            id: highest_scores
+                            font_size: 17
+                            size_hint_y: None
+                            color: (0, 0, 0, 1)
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 10
+                size_hint: (1, None)
+                pos_hint: {'center_x': 0.5}
+                Button:
+                    text: 'Edit Profile'
+                    background_color: (0.2, 0.6, 0.86, 1)
+                    color: (1, 1, 1, 1)
+                    on_release: app.root.current = 'edit_profile'
+                    size_hint: 1, None
+                    height: 50
+                    radius: [10,]
+
+                Button:
+                    text: 'Back To Main'
+                    background_color: (0.2, 0.6, 0.86, 1)
+                    color: (1, 1, 1, 1)
+                    on_release: app.root.current = 'main'
+                    size_hint: 1, None
+                    height: 50
+                    radius: [10,]
+
+                Button:
+                    id: logout_button
+                    text: 'Logout'
+                    background_color: (0.2, 0.6, 0.86, 1)
+                    color: (1, 1, 1, 1)
+                    size_hint: 1, None
+                    height: 50
+                    radius: [10,]
+                    opacity: 0
+                    disabled: True
+                    on_release: root.logout()

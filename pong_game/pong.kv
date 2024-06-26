@@ -1,0 +1,54 @@
+#pong.kv
+<PongBall>:
+    size: 45, 45
+    canvas.before:
+        Ellipse:
+            pos: self.pos
+            size: self.size
+            source: 'pong_game/assets/ball.png'
+
+<PongPaddle>:
+    size: 20, 180
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'pong_game/assets/paddle.jpg'
+
+<PongGame>:
+
+    ball: pong_ball
+    player1: player_left
+    player2: player_right
+    
+    canvas.before:
+        Rectangle:
+            size: self.size
+            pos: self.pos
+            source: 'pong_game/assets/table.jpg'
+
+    Label:
+        font_size: 70
+        center_x: root.width / 10
+        top: root.top - 50
+        text: str(root.player1.score)
+
+    Label:
+        font_size: 70
+        center_x: root.width * 3 / 4
+        top: root.top - 50
+        text: str(root.player2.score)
+    
+    PongBall:
+        id: pong_ball
+        center: self.parent.center
+        
+    PongPaddle:
+        id: player_left
+        x: root.x
+        center_y: root.center_y
+        
+    PongPaddle:
+        id: player_right
+        x: root.width - self.width
+        center_y: root.center_y

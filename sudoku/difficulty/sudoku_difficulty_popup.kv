@@ -1,0 +1,36 @@
+<SudokuDifficultyPopup>:
+    title: 'Select Sudoku Difficulty'
+    size_hint: None, None
+    size: 400, 300
+    auto_dismiss: False
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+
+        Label:
+            text: 'Choose Difficulty Level'
+            font_size: 24
+
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 10
+
+            Button:
+                text: 'Easy'
+                on_release: root.dismiss()  # Add your function here to start the game with Easy difficulty
+
+            Button:
+                text: 'Medium'
+                on_release: root.dismiss()  # Add your function here to start the game with Medium difficulty
+
+            Button:
+                text: 'Hard'
+                on_release: root.dismiss()  # Add your function here to start the game with Hard difficulty
+
+        Button:
+            text: 'Cancel'
+            size_hint_y: None
+            height: 50
+            on_release: root.dismiss()

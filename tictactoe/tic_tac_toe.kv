@@ -1,0 +1,26 @@
+#tic_tac_toe.kv
+<TicTacToeButton>:
+    font_size: 48
+    size_hint: 1, 1
+    background_normal: ''
+    background_color: (0.7, 0.7, 0.7, 1)
+    color: (0, 0, 0, 1)
+
+<TicTacToe>:
+    canvas.before:
+        Rectangle:
+            size: self.size
+            pos: self.pos
+            source: 'background_2.jpg'
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'Tic-Tac-Toe'
+            font_size: 32
+            size_hint_y: None
+            height: 50
+        GridLayout:
+            id: game_grid
+            cols: 3
+            padding: 10
+            spacing: 10
